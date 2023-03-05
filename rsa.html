@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<head>
+<title>RSA Encryption</title>
+<meta name="viewport" content="width=device-width, initialscale=1.0">
+<style>
+    body{
+    background-color: black;
+    color:white;
+    }
+    button{
+     padding:5px 5px 5px 5px;
+     box-shadow:1px white;
+     align-items: center;
+     margin-top:60px;
+     border-radius: 30px;
+    }
+    .center{
+    margin-top:50px;
+    text-align:left;
+    padding:5px 5px;
+    }
+</style>
+</head>
+<body>
+<h1 style="text-align: center;">RIVEST SHAMIR ADLEMAN ASYMMETRIC ALGORITHM</h1>
+<hr>
+<table class="center">
+<tr>
+<td>Enter P:</td>
+<td><input type="number" placeholder="enter the p value" id="p"></td>
+</tr>
+<tr>
+<td>Enter Q :</td>
+<td><input type="number" placeholder="enter the p value" id="q"></p>
+</td>
+</tr>
+<tr>
+<td>Enter the Message:<br>[A=1, B=2,...]</td>
+<td><input type="number" placeholder="enter the plaintext" id="msg"></p>
+</td>
+</tr>
+<tr>
+    <td>Enter the public key(e):</td>
+    <td><input type="number" placeholder="enter the public key e value" id="eval"></p>
+    </td>
+    </tr>
+<tr>
+<td>N:</td>
+<td>
+<p id="N"></p>
+</td>
+</tr>
+<tr>
+<td>Private Key(d):</td>
+<td>
+<p id="privatekey(d)"></p>
+</td>
+</tr>
+<tr>
+<td>Cipher Text(C):</td>
+<td>
+<p id="ciphertext(ct)"></p>
+</td>
+</tr>
+<tr>
+    <td><button onclick="RSA();">Apply RSA</button></td>
+    </tr>
+    </table>
+   
+    </body>
+    <style>
+        .center {
+  margin-left: auto;
+  margin-right: auto;
+}
+    </style>
+    <script type="text/javascript">
+    function RSA() {
+    var gcd, p, q, no, n, t, e, i, x;
+    gcd = function (a, b) { return (!b) ? a : gcd(b, a % b); };
+    p = document.getElementById('p').value;
+    q = document.getElementById('q').value;
+    no = document.getElementById('msg').value;
+    e=document.getElementById('eval').value;
+    n = p * q;
+    t = (p - 1) * (q - 1);
+    for (i = 1; i < e; i++) {
+    x = 1 + i * t;
+    if (x % e == 0) {
+    d = x / e;
+    break;
+    }
+}
+ctt = Math.pow(no, e).toFixed(0);
+ct = ctt % n;
+dtt = Math.pow(ct, d).toFixed(0);
+dt = dtt % n;
+document.getElementById('N').innerHTML = n;
+document.getElementById('privatekey(d)').innerHTML = d;
+document.getElementById('ciphertext(ct)').innerHTML = ct;
+}
+</script>
+<h3 style="text-align:center">*****************CREATED BY SOWMIYA A********************</h3>
+</html>
